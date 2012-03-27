@@ -6,11 +6,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.uniqueid.api.operations.GetUniqueID;
+import co.uniqueid.api.operations.AddContact;
 import co.uniqueid.api.operations.URLUtilities;
 
 @SuppressWarnings("serial")
-public class SearchUniqueIDServlet extends HttpServlet {
+public class AddContactServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
@@ -26,17 +26,16 @@ public class SearchUniqueIDServlet extends HttpServlet {
 
 	private String getData(HttpServletRequest request) {
 
-		String fieldName = URLUtilities.decode(request
-				.getParameter("fieldName"));
+		String uniqueID = URLUtilities.decode(request.getParameter("UniqueID"));
+		String contactID = URLUtilities.decode(request
+				.getParameter("ContactID"));
 
-		String fieldValue = URLUtilities.decode(request
-				.getParameter("fieldValue"));
-
-		String entity = GetUniqueID.getByField(fieldName, fieldValue);
+		AddContact.save(uniqueID, contactID);
 
 		String answer = CallbackUtilities.getCallback(
-				request.getParameter("callback"), entity.toString());
+				request.getParameter("callback"), "OK");
 
 		return answer;
 	}
+
 }

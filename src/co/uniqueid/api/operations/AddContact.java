@@ -1,6 +1,6 @@
 package co.uniqueid.api.operations;
 
-public class AddFounded {
+public class AddContact {
 
 	// http://jsonpfy.unoidme.appspot.com/AddArrayDataService
 	// ?kind=UniqueID&ID=goLiveSource
@@ -8,18 +8,15 @@ public class AddFounded {
 
 	private static String saveArrayUrl = "http://jsonpfy.unoidme.appspot.com/AddArrayDataService";
 
-	public static void save(final String uniqueID, final String foundedID) {
+	public static void save(final String uniqueID, final String contactUniqueID) {
 
 		String parameters = "kind=UniqueID";
 
 		parameters += "&ID=" + uniqueID;
 
-		parameters += "&Founded=" + foundedID;
+		parameters += "&Contacts=" + contactUniqueID;
 
 		URLUtilities.fetchURLPost(saveArrayUrl, parameters);
-
-		//Save inverted positions
-		save(foundedID, uniqueID);
 	}
 
 }
