@@ -18,8 +18,14 @@ public class AddFounded {
 
 		URLUtilities.fetchURLPost(saveArrayUrl, parameters);
 
-		//Save inverted positions
-		save(foundedID, uniqueID);
+		// Save inverted positions
+		parameters = "kind=UniqueID";
+
+		parameters += "&ID=" + foundedID;
+
+		parameters += "&Founded=" + uniqueID;
+
+		URLUtilities.fetchURLPost(saveArrayUrl, parameters);
 	}
 
 }
