@@ -1,5 +1,7 @@
 package co.uniqueid.api.operations;
 
+import org.json.JSONObject;
+
 public class AddContact {
 
 	// http://jsonpfy.unoidme.appspot.com/AddArrayDataService
@@ -8,15 +10,32 @@ public class AddContact {
 
 	private static String saveArrayUrl = "http://jsonpfy.unoidme.appspot.com/AddArrayDataService";
 
-	public static void save(final String uniqueID, final String contactUniqueID) {
+	public static void save(final String uniqueID, final String contactParameter) {
 
-		String parameters = "kind=UniqueID";
+		String contact = GetEntityByUniqueID.get(contactParameter);
 
-		parameters += "&ID=" + uniqueID;
+		JSONObject contactJson = JSONUtilities.getUserJson(contact);
 
-		parameters += "&Contacts=" + contactUniqueID;
+		if (contactJson == null) {
 
-		URLUtilities.fetchURLPost(saveArrayUrl, parameters);
+			contact = GetUniqueID.getByField("entityName", contactParameter);
+
+			contactJson = JSONUtilities.getUserJson(contact);
+		}
+
+		if (contactJson != null) {
+
+			String contactID = JSONUtilities.getString(contactJson, "ID");
+
+			String parameters = "kind=UniqueID";
+
+			parameters += "&ID=" + uniqueID;
+
+			parameters += "&Contacts=" + contactID;
+
+			URLUtilities.fetchURLPost(saveArrayUrl, parameters);
+		}
+
 	}
 
 }

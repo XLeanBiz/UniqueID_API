@@ -1,5 +1,7 @@
 package co.uniqueid.api.operations;
 
+import org.json.JSONObject;
+
 public class AddFounded {
 
 	// http://jsonpfy.unoidme.appspot.com/AddArrayDataService
@@ -8,24 +10,41 @@ public class AddFounded {
 
 	private static String saveArrayUrl = "http://jsonpfy.unoidme.appspot.com/AddArrayDataService";
 
-	public static void save(final String uniqueID, final String foundedID) {
+	public static void save(final String uniqueID, final String foundedParameter) {
 
-		String parameters = "kind=UniqueID";
+		String founded = GetEntityByUniqueID.get(foundedParameter);
 
-		parameters += "&ID=" + uniqueID;
+		JSONObject foundedJson = JSONUtilities.getUserJson(founded);
 
-		parameters += "&Founded=" + foundedID;
+		if (foundedJson == null) {
 
-		URLUtilities.fetchURLPost(saveArrayUrl, parameters);
+			founded = GetUniqueID.getByField("entityName", foundedParameter);
 
-		// Save inverted positions
-		parameters = "kind=UniqueID";
+			foundedJson = JSONUtilities.getUserJson(founded);
+		}
 
-		parameters += "&ID=" + foundedID;
+		if (foundedJson != null) {
 
-		parameters += "&Founded=" + uniqueID;
+			String foundedID = JSONUtilities.getString(foundedJson, "ID");
 
-		URLUtilities.fetchURLPost(saveArrayUrl, parameters);
+			String parameters = "kind=UniqueID";
+
+			parameters += "&ID=" + uniqueID;
+
+			parameters += "&Founded=" + foundedID;
+
+			URLUtilities.fetchURLPost(saveArrayUrl, parameters);
+
+			// Save inverted positions
+			parameters = "kind=UniqueID";
+
+			parameters += "&ID=" + foundedID;
+
+			parameters += "&Founded=" + uniqueID;
+
+			URLUtilities.fetchURLPost(saveArrayUrl, parameters);
+		}
+
 	}
 
 }
