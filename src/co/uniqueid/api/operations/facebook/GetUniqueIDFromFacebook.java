@@ -65,11 +65,17 @@ public class GetUniqueIDFromFacebook {
 
 		if (unoUserJson == null) {
 
-			String unoUserID = JSONUtilities
-					.getString(facebookMe, "first_name")
-					+ JSONUtilities.getString(facebookMe, "last_name")
-					+ "_"
-					+ (new Date()).getTime();
+			String name = JSONUtilities.getString(facebookMe, "first_name");
+
+			if (name == null) {
+
+				name = JSONUtilities.getString(facebookMe, "name");
+			} else {
+
+				name += JSONUtilities.getString(facebookMe, "last_name");
+			}
+
+			String unoUserID = name + "_" + (new Date()).getTime();
 
 			unoUserJson = createUniqueID(unoUserID, facebookLogin);
 		}
