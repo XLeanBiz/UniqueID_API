@@ -19,6 +19,8 @@ public class SaveFacebookInfo {
 		parameters += URLUtilities.addSaveParameter(unoUserJson, "username");
 
 		parameters += URLUtilities.addSaveParameter(unoUserJson, "facebook_email");
+		
+		parameters += URLUtilities.addSaveParameter(unoUserJson, "name");
 
 		parameters += URLUtilities.addSaveParameter(unoUserJson, "first_name");
 

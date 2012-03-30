@@ -18,6 +18,8 @@ public class SaveUniqueIDFromFacebook {
 
 		updateFacebookValue(unoUserJson, facebookMe, "username");
 
+		updateFacebookValue(unoUserJson, facebookMe, "name");
+
 		updateFacebookValue(unoUserJson, facebookMe, "first_name");
 
 		updateFacebookValue(unoUserJson, facebookMe, "last_name");
@@ -73,10 +75,15 @@ public class SaveUniqueIDFromFacebook {
 
 		if (name == null) {
 
-			String first = JSONUtilities.getString(unoUserJson, "first_name");
-			String last = JSONUtilities.getString(unoUserJson, "last_name");
+			name = JSONUtilities.getString(unoUserJson, "first_name");
 
-			name = first + " " + last;
+			if (name == null) {
+
+				name = JSONUtilities.getString(unoUserJson, "name");
+			} else {
+
+				name += " " + JSONUtilities.getString(unoUserJson, "last_name");
+			}
 
 			try {
 				unoUserJson.put("entityName", name);
