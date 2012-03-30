@@ -30,7 +30,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>SearchUniqueIDService</servlet-name>
 		<url-pattern>/SearchUniqueIDService</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>SaveUniqueIDService</servlet-name>
 		<servlet-class>co.uniqueid.api.servlets.SaveUniqueIDServlet</servlet-class>
@@ -39,7 +39,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>SaveUniqueIDService</servlet-name>
 		<url-pattern>/SaveUniqueIDService</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>AddFoundedService</servlet-name>
 		<servlet-class>co.uniqueid.api.servlets.AddFoundedServlet</servlet-class>
@@ -47,8 +47,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>AddFoundedService</servlet-name>
 		<url-pattern>/AddFoundedService</url-pattern>
-	</servlet-mapping>	
-	
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>AddContactService</servlet-name>
 		<servlet-class>co.uniqueid.api.servlets.AddContactServlet</servlet-class>
@@ -56,8 +56,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>AddContactService</servlet-name>
 		<url-pattern>/AddContactService</url-pattern>
-	</servlet-mapping>	
-	
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>ListContactsService</servlet-name>
 		<servlet-class>co.uniqueid.api.servlets.ListContactsServlet</servlet-class>
@@ -65,8 +65,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>ListContactsService</servlet-name>
 		<url-pattern>/ListContactsService</url-pattern>
-	</servlet-mapping>	
-	
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>ListFoundedService</servlet-name>
 		<servlet-class>co.uniqueid.api.servlets.ListFoundedServlet</servlet-class>
@@ -74,7 +74,35 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>ListFoundedService</servlet-name>
 		<url-pattern>/ListFoundedService</url-pattern>
-	</servlet-mapping>	
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DeleteContactService</servlet-name>
+		<servlet-class>co.uniqueid.api.servlets.DeleteContactServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteContactService</servlet-name>
+		<url-pattern>/DeleteContactService</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DeleteFoundedService</servlet-name>
+		<servlet-class>co.uniqueid.api.servlets.DeleteFoundedServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteFoundedService</servlet-name>
+		<url-pattern>/DeleteFoundedService</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SaveUniqueIDFromFacebookService</servlet-name>
+		<servlet-class>co.uniqueid.api.servlets.SaveUniqueIDFromFacebookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaveUniqueIDFromFacebookService</servlet-name>
+		<url-pattern>/SaveUniqueIDFromFacebookService</url-pattern>
+	</servlet-mapping>
+
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
