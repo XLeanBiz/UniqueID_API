@@ -75,7 +75,7 @@ public class GetUniqueIDFromFacebook {
 				name += JSONUtilities.getString(facebookMe, "last_name");
 			}
 
-			String unoUserID = name + "_" + (new Date()).getTime();
+			String unoUserID = URLUtilities.compactName(name) + "_" + (new Date()).getTime();
 
 			unoUserJson = createUniqueID(unoUserID, facebookLogin);
 		}

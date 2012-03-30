@@ -143,4 +143,24 @@ public class URLUtilities {
 			return "";
 		}
 	}
+	
+	public static String compactName(String name) {
+
+		name = name.replaceAll("\\.","");
+		
+		String[] words = (name.trim()).split(" ");
+
+		String compressedFileName = "";
+
+		for (int i = 0; i < words.length; i++) {
+
+			String word = words[i];
+
+			word = (word.substring(0, 1)).toUpperCase() + word.substring(1);
+
+			compressedFileName += word;
+		}
+
+		return compressedFileName;
+	}
 }
