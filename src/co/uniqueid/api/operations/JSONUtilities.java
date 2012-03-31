@@ -12,11 +12,11 @@ public class JSONUtilities {
 		try {
 			value = json.getString(key);
 		} catch (JSONException e) {
-			//e.printStackTrace();
+			// e.printStackTrace();
 		}
 		return value;
 	}
-	
+
 	public static JSONObject getUserJson(String jsonString) {
 
 		JSONObject userJsonObject = null;
@@ -29,13 +29,20 @@ public class JSONUtilities {
 				userJsonObject = (JSONObject) json.get(0);
 
 			} catch (JSONException e) {
-				// e.printStackTrace();
+
+				try {
+					userJsonObject = new JSONObject(jsonString);
+
+				} catch (JSONException e1) {
+
+					e1.printStackTrace();
+				}
 			}
 		}
 
 		return userJsonObject;
 	}
-	
+
 	public static String convertToEntityID(String jsonEntity) {
 
 		jsonEntity = jsonEntity.replace("UniqueID(\"", "");

@@ -16,7 +16,7 @@ public class AddContact {
 
 		JSONObject contactJson = JSONUtilities.getUserJson(contact);
 
-		if (contactJson == null) {
+		if (contactJson == null || !contactJson.has("ID")) {
 
 			contact = GetUniqueID.getByField("entityName", contactParameter);
 
