@@ -35,4 +35,13 @@ public class JSONUtilities {
 
 		return userJsonObject;
 	}
+	
+	public static String convertToEntityID(String jsonEntity) {
+
+		jsonEntity = jsonEntity.replace("UniqueID(\"", "");
+		jsonEntity = jsonEntity.replace("\")", "");
+
+		return jsonEntity;
+	}
+
 }

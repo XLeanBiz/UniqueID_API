@@ -1,5 +1,7 @@
 package co.uniqueid.api.operations;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class GetEntityByUniqueID {
 
@@ -17,5 +19,32 @@ public class GetEntityByUniqueID {
 				parameters);
 
 		return jsonString;
+	}
+
+	public static JSONObject getBasicInfo(final String unoUserID) {
+
+		final String jsonString = get(unoUserID);
+
+		JSONObject basicInfo = new JSONObject();
+
+		try {
+
+			JSONObject obj = new JSONObject(jsonString);
+
+			basicInfo.put("ID", obj.get("ID"));
+			
+			basicInfo.put("entityName", obj.get("entityName"));
+
+			if (obj.has("image")) {
+				
+				basicInfo.put("image", obj.get("image"));
+			}
+
+		} catch (JSONException e) {
+
+			e.printStackTrace();
+		}
+
+		return basicInfo;
 	}
 }

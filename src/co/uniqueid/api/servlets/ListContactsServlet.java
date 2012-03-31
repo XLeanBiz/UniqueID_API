@@ -13,7 +13,7 @@ import co.uniqueid.api.operations.URLUtilities;
 public class ListContactsServlet extends HttpServlet {
 	
 	// http://localhost:8888/ListContactsService
-	// ?UniqueID=
+	// ?UniqueID=AllineWatkins_1332886062783
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
