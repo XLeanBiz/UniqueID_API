@@ -11,6 +11,11 @@ import co.uniqueid.api.operations.URLUtilities;
 
 @SuppressWarnings("serial")
 public class DeleteContactServlet extends HttpServlet {
+	
+	// http://localhost:8888/DeleteContactService
+	// ?UniqueID=goLiveSource
+	// &ContactID=JuneClarke_1332960875108
+
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {

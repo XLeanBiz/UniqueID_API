@@ -2,11 +2,11 @@ package co.uniqueid.api.operations;
 
 public class DeleteContact {
 
-	// http://jsonpfy.unoidme.appspot.com/SaveArrayDataService
+	// http://jsonpfy.unoidme.appspot.com/DeleteArrayDataService
 	// ?kind=UniqueID&ID=goLiveSource
 	// &Founded=LiveSourceWeb
 
-	private static String saveArrayUrl = "http://jsonpfy.unoidme.appspot.com/SaveArrayDataService";
+	private static String saveArrayUrl = "http://jsonpfy.unoidme.appspot.com/DeleteArrayDataService";
 
 	public static void delete(final String uniqueID, final String contactID) {
 
