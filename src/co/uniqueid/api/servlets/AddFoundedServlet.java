@@ -15,7 +15,7 @@ public class AddFoundedServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 
-		// response.getWriter().println(getData(request));
+		//response.getWriter().println(getData(request));
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

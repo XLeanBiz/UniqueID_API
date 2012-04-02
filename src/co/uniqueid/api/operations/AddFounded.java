@@ -16,7 +16,7 @@ public class AddFounded {
 
 		JSONObject foundedJson = JSONUtilities.getUserJson(founded);
 
-		if (foundedJson == null) {
+		if (foundedJson == null || !foundedJson.has("ID")) {
 
 			founded = GetUniqueID.getByField("entityName", foundedParameter);
 
