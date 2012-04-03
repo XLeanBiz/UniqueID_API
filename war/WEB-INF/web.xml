@@ -59,6 +59,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>AddGroupService</servlet-name>
+		<servlet-class>co.uniqueid.api.servlets.AddGroupServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddGroupService</servlet-name>
+		<url-pattern>/AddGroupService</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>ListContactsService</servlet-name>
 		<servlet-class>co.uniqueid.api.servlets.ListContactsServlet</servlet-class>
 	</servlet>
@@ -74,6 +83,24 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>ListFoundedService</servlet-name>
 		<url-pattern>/ListFoundedService</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ListGroupsService</servlet-name>
+		<servlet-class>co.uniqueid.api.servlets.ListGroupsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListGroupsService</servlet-name>
+		<url-pattern>/ListGroupsService</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RenameMainGroupService</servlet-name>
+		<servlet-class>co.uniqueid.api.servlets.RenameMainGroupServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RenameMainGroupService</servlet-name>
+		<url-pattern>/RenameMainGroupService</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
