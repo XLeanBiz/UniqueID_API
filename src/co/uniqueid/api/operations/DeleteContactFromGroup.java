@@ -1,18 +1,20 @@
 package co.uniqueid.api.operations;
 
-public class DeleteContact {
+public class DeleteContactFromGroup {
 
 	// http://jsonpfy.unoidme.appspot.com/DeleteArrayDataService
-	// ?kind=UniqueID&ID=goLiveSource
+	// ?kind=Groups&ID=goLiveSource
 	// &Founded=LiveSourceWeb
 
 	private static String saveArrayUrl = "http://jsonpfy.unoidme.appspot.com/DeleteArrayDataService";
 
-	public static void delete(final String uniqueID, final String contactID) {
+	public static void delete(final String groupID, final String contactID) {
 
-		String parameters = "kind=UniqueID";
+		String parameters = "kind=Groups";
 
-		parameters += "&ID=" + uniqueID;
+		parameters += "&ID=" + groupID;
+		
+		parameters += "&KeyKind=UniqueID";
 
 		parameters += "&Contacts=" + contactID;
 

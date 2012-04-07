@@ -17,7 +17,7 @@ public class ListFounded {
 		final String jsonString = URLUtilities.fetchURLPost(getListContactsUrl,
 				parameters);
 
-		String groupJsonString = ListContacts.getFoundedInfo(jsonString);
+		String groupJsonString = ListContactsFromGroup.getFoundedInfo(jsonString);
 
 		return groupJsonString;
 

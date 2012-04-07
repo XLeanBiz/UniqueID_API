@@ -2,7 +2,7 @@ package co.uniqueid.api.operations;
 
 import org.json.JSONObject;
 
-public class AddContact {
+public class AddContactToGroup {
 
 	// http://jsonpfy.unoidme.appspot.com/AddArrayDataService
 	// ?kind=UniqueID&ID=goLiveSource
@@ -10,7 +10,7 @@ public class AddContact {
 
 	private static String saveArrayUrl = "http://jsonpfy.unoidme.appspot.com/AddArrayDataService";
 
-	public static void save(final String uniqueID, final String contactParameter) {
+	public static void save(final String groupID, final String contactParameter) {
 
 		String contact = GetEntityByUniqueID.get(contactParameter);
 
@@ -27,9 +27,11 @@ public class AddContact {
 
 			String contactID = JSONUtilities.getString(contactJson, "ID");
 
-			String parameters = "kind=UniqueID";
+			String parameters = "kind=Groups";
 
-			parameters += "&ID=" + uniqueID;
+			parameters += "&ID=" + groupID;
+			
+			parameters += "&KeyKind=UniqueID";
 
 			parameters += "&Contacts=" + contactID;
 

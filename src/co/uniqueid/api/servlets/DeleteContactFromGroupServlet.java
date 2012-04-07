@@ -6,11 +6,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.uniqueid.api.operations.DeleteContact;
+import co.uniqueid.api.operations.DeleteContactFromGroup;
 import co.uniqueid.api.operations.URLUtilities;
 
 @SuppressWarnings("serial")
-public class DeleteContactServlet extends HttpServlet {
+public class DeleteContactFromGroupServlet extends HttpServlet {
 	
 	// http://localhost:8888/DeleteContactService
 	// ?UniqueID=goLiveSource
@@ -31,11 +31,11 @@ public class DeleteContactServlet extends HttpServlet {
 
 	private String getData(HttpServletRequest request) {
 
-		String uniqueID = URLUtilities.decode(request.getParameter("UniqueID"));
+		String groupID = URLUtilities.decode(request.getParameter("groupID"));
 		String contactID = URLUtilities.decode(request
 				.getParameter("ContactID"));
 
-		DeleteContact.delete(uniqueID, contactID);
+		DeleteContactFromGroup.delete(groupID, contactID);
 
 		String answer = CallbackUtilities.getCallback(
 				request.getParameter("callback"), "OK");

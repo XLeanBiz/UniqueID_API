@@ -48,8 +48,8 @@ public class SaveUniqueID {
 
 		if (uniqueID == null) {
 
-			uniqueID = JSONUtilities.getString(unoUserJson, "entityName") + "_"
-					+ (new Date().getTime());
+			uniqueID = URLUtilities.compactName(JSONUtilities.getString(
+					unoUserJson, "entityName")) + "_" + (new Date().getTime());
 
 			try {
 				unoUserJson.put("ID", uniqueID);

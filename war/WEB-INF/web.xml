@@ -50,12 +50,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>AddContactService</servlet-name>
-		<servlet-class>co.uniqueid.api.servlets.AddContactServlet</servlet-class>
+		<servlet-name>AddContactToGroupService</servlet-name>
+		<servlet-class>co.uniqueid.api.servlets.AddContactToGroupServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>AddContactService</servlet-name>
-		<url-pattern>/AddContactService</url-pattern>
+		<servlet-name>AddContactToGroupService</servlet-name>
+		<url-pattern>/AddContactToGroupService</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -68,12 +68,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>ListContactsService</servlet-name>
-		<servlet-class>co.uniqueid.api.servlets.ListContactsServlet</servlet-class>
+		<servlet-name>ListContactsFromGroupService</servlet-name>
+		<servlet-class>co.uniqueid.api.servlets.ListContactsFromGroupServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ListContactsService</servlet-name>
-		<url-pattern>/ListContactsService</url-pattern>
+		<servlet-name>ListContactsFromGroupService</servlet-name>
+		<url-pattern>/ListContactsFromGroupService</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -84,7 +84,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>ListFoundedService</servlet-name>
 		<url-pattern>/ListFoundedService</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>ListGroupsService</servlet-name>
 		<servlet-class>co.uniqueid.api.servlets.ListGroupsServlet</servlet-class>
@@ -93,7 +93,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>ListGroupsService</servlet-name>
 		<url-pattern>/ListGroupsService</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>RenameMainGroupService</servlet-name>
 		<servlet-class>co.uniqueid.api.servlets.RenameMainGroupServlet</servlet-class>
@@ -102,15 +102,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>RenameMainGroupService</servlet-name>
 		<url-pattern>/RenameMainGroupService</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
-		<servlet-name>DeleteContactService</servlet-name>
-		<servlet-class>co.uniqueid.api.servlets.DeleteContactServlet</servlet-class>
+		<servlet-name>DeleteContactFromGroupService</servlet-name>
+		<servlet-class>co.uniqueid.api.servlets.DeleteContactFromGroupServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>DeleteContactService</servlet-name>
-		<url-pattern>/DeleteContactService</url-pattern>
-	</servlet-mapping>
+		<servlet-name>DeleteContactFromGroupService</servlet-name>
+		<url-pattern>/DeleteContactFromGroupService</url-pattern>
+	</servlet-mapping>	
 
 	<servlet>
 		<servlet-name>DeleteFoundedService</servlet-name>

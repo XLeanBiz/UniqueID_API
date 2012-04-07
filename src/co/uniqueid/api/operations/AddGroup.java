@@ -13,6 +13,9 @@ public class AddGroup {
 
 		String parameters = "kind=Groups";
 
+		parameters += "&ID=" + uniqueID + "_"
+				+ URLUtilities.compactName(groupName);
+
 		parameters += "&fieldsKind=String&fieldsName=UniqueID&fieldsValue="
 				+ uniqueID;
 

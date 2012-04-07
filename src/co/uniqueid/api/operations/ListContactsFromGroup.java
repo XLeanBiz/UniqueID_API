@@ -4,12 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ListContacts {
-
-	// http://jsonpfy.unoidme.appspot.com/ListSubArrayService
-	// ?kind=Entity
-	// &ID=goLiveSource
-	// &fieldSubArray=groupConnections
+public class ListContactsFromGroup {
 
 	// http://jsonpfy.unoidme.appspot.com/ListSubArrayService
 	// ?kind=UniqueID
@@ -18,9 +13,9 @@ public class ListContacts {
 
 	private static String getListContactsUrl = "http://jsonpfy.unoidme.appspot.com/ListSubArrayService";
 
-	public static String list(final String uniqueID) {
+	public static String list(final String groupID) {
 
-		String parameters = "kind=UniqueID&ID=" + uniqueID
+		String parameters = "kind=Groups&ID=" + groupID
 				+ "&fieldSubArray=Contacts";
 
 		final String jsonString = URLUtilities.fetchURLPost(getListContactsUrl,
