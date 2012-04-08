@@ -3,8 +3,8 @@ package co.uniqueid.api.operations.facebook;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import co.uniqueid.api.operations.JSONUtilities;
 import co.uniqueid.api.operations.SaveUniqueID;
+import co.uniqueid.api.utilities.JSONUtilities;
 
 public class SaveUniqueIDFromFacebook {
 

@@ -4,6 +4,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import co.uniqueid.api.utilities.EncryptText;
+import co.uniqueid.api.utilities.JSONUtilities;
+import co.uniqueid.api.utilities.URLUtilities;
+
 public class ListContactsFromGroup {
 
 	// http://jsonpfy.unoidme.appspot.com/ListSubArrayService
@@ -11,7 +15,7 @@ public class ListContactsFromGroup {
 	// &ID=AllineWatkins_1332886062783
 	// &fieldSubArray=Contact
 
-	private static String getListContactsUrl = "http://jsonpfy.unoidme.appspot.com/ListSubArrayService";
+	private static String getListContactsUrl = "https://jsonpfy.unoidme.appspot.com/ListSubArrayService";
 
 	public static String list(final String groupID) {
 
@@ -19,7 +23,7 @@ public class ListContactsFromGroup {
 				+ "&fieldSubArray=Contacts";
 
 		final String jsonString = URLUtilities.fetchURLPost(getListContactsUrl,
-				parameters);
+				parameters + EncryptText.getAuthParameter());
 
 		String groupJsonString = getFoundedInfo(jsonString);
 

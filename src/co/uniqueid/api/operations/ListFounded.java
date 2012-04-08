@@ -1,5 +1,8 @@
 package co.uniqueid.api.operations;
 
+import co.uniqueid.api.utilities.EncryptText;
+import co.uniqueid.api.utilities.URLUtilities;
+
 public class ListFounded {
 
 	// http://jsonpfy.unoidme.appspot.com/ListSubArrayService
@@ -7,7 +10,7 @@ public class ListFounded {
 	// &ID=goLiveSource
 	// &fieldSubArray=groupConnections
 
-	private static String getListContactsUrl = "http://jsonpfy.unoidme.appspot.com/ListSubArrayService";
+	private static String getListContactsUrl = "https://jsonpfy.unoidme.appspot.com/ListSubArrayService";
 
 	public static String list(final String uniqueID) {
 
@@ -15,9 +18,10 @@ public class ListFounded {
 				+ "&fieldSubArray=Founded";
 
 		final String jsonString = URLUtilities.fetchURLPost(getListContactsUrl,
-				parameters);
+				parameters + EncryptText.getAuthParameter());
 
-		String groupJsonString = ListContactsFromGroup.getFoundedInfo(jsonString);
+		String groupJsonString = ListContactsFromGroup
+				.getFoundedInfo(jsonString);
 
 		return groupJsonString;
 

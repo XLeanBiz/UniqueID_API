@@ -1,4 +1,4 @@
-package co.uniqueid.api.servlets;
+package co.uniqueid.api.utilities;
 
 import org.json.JSONException;
 import org.json.JSONObject;

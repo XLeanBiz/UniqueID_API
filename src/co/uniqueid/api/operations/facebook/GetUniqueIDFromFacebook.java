@@ -6,8 +6,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import co.uniqueid.api.operations.GetUniqueID;
-import co.uniqueid.api.operations.JSONUtilities;
-import co.uniqueid.api.operations.URLUtilities;
+import co.uniqueid.api.utilities.JSONUtilities;
+import co.uniqueid.api.utilities.URLUtilities;
 
 public class GetUniqueIDFromFacebook {
 

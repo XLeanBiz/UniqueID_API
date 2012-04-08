@@ -6,8 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.uniqueid.api.operations.URLUtilities;
 import co.uniqueid.api.operations.facebook.GetUniqueIDFromFacebook;
+import co.uniqueid.api.utilities.CallbackUtilities;
+import co.uniqueid.api.utilities.URLUtilities;
 
 @SuppressWarnings("serial")
 public class SaveUniqueIDFromFacebookServlet extends HttpServlet {

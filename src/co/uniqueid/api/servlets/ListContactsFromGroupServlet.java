@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.uniqueid.api.operations.ListContactsFromGroup;
-import co.uniqueid.api.operations.URLUtilities;
+import co.uniqueid.api.utilities.CallbackUtilities;
+import co.uniqueid.api.utilities.URLUtilities;
 
 @SuppressWarnings("serial")
 public class ListContactsFromGroupServlet extends HttpServlet {

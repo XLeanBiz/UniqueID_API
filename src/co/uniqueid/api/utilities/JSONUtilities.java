@@ -1,4 +1,4 @@
-package co.uniqueid.api.operations;
+package co.uniqueid.api.utilities;
 
 import org.json.JSONArray;
 import org.json.JSONException;

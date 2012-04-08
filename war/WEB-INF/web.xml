@@ -4,6 +4,17 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
+
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/profile/*</url-pattern>
+		</web-resource-collection>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+
 	<servlet>
 		<servlet-name>UniqueID_API</servlet-name>
 		<servlet-class>co.uniqueid.api.UniqueID_APIServlet</servlet-class>
@@ -102,7 +113,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>RenameMainGroupService</servlet-name>
 		<url-pattern>/RenameMainGroupService</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>DeleteContactFromGroupService</servlet-name>
 		<servlet-class>co.uniqueid.api.servlets.DeleteContactFromGroupServlet</servlet-class>
@@ -110,7 +121,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>DeleteContactFromGroupService</servlet-name>
 		<url-pattern>/DeleteContactFromGroupService</url-pattern>
-	</servlet-mapping>	
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>DeleteFoundedService</servlet-name>

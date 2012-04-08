@@ -1,5 +1,8 @@
 package co.uniqueid.api.operations;
 
+import co.uniqueid.api.utilities.EncryptText;
+import co.uniqueid.api.utilities.URLUtilities;
+
 public class AddGroup {
 
 	// http://jsonpfy.unoidme.appspot.com/SaveDataService
@@ -7,7 +10,7 @@ public class AddGroup {
 	// &UniqueID=goLiveSource
 	// &Group=LiveSourceWeb
 
-	private static String saveUrl = "http://jsonpfy.unoidme.appspot.com/SaveDataService";
+	private static String saveUrl = "https://jsonpfy.unoidme.appspot.com/SaveDataService";
 
 	public static void save(final String uniqueID, final String groupName) {
 
@@ -22,7 +25,8 @@ public class AddGroup {
 		parameters += "&fieldsKind=String&fieldsName=Group&fieldsValue="
 				+ groupName;
 
-		URLUtilities.fetchURLPost(saveUrl, parameters);
+		URLUtilities.fetchURLPost(saveUrl,
+				parameters + EncryptText.getAuthParameter());
 	}
 
 }

@@ -1,5 +1,8 @@
 package co.uniqueid.api.operations;
 
+import co.uniqueid.api.utilities.EncryptText;
+import co.uniqueid.api.utilities.URLUtilities;
+
 public class ListGroups {
 
 	// http://jsonpfy.unoidme.appspot.com/ListDataService
@@ -7,7 +10,7 @@ public class ListGroups {
 	// &filterField=UniqueID"
 	// "&filterValue=" + AllineWatkins_1332886062783
 
-	private static String getListUrl = "http://jsonpfy.unoidme.appspot.com/ListDataService";
+	private static String getListUrl = "https://jsonpfy.unoidme.appspot.com/ListDataService";
 
 	public static String list(final String uniqueID) {
 
@@ -15,7 +18,7 @@ public class ListGroups {
 				+ "&filterValue=" + uniqueID;
 
 		final String jsonString = URLUtilities.fetchURLPost(getListUrl,
-				parameters);
+				parameters + EncryptText.getAuthParameter());
 
 		return jsonString;
 	}

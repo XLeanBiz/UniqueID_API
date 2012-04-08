@@ -1,4 +1,4 @@
-package co.uniqueid.api.operations;
+package co.uniqueid.api.utilities;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.json.JSONObject;
+
 
 public class URLUtilities {
 

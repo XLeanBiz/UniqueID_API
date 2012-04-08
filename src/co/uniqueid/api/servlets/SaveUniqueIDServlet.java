@@ -10,7 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import co.uniqueid.api.operations.SaveUniqueID;
-import co.uniqueid.api.operations.URLUtilities;
+import co.uniqueid.api.utilities.CallbackUtilities;
+import co.uniqueid.api.utilities.URLUtilities;
 
 @SuppressWarnings("serial")
 public class SaveUniqueIDServlet extends HttpServlet {

@@ -5,9 +5,13 @@ import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import co.uniqueid.api.utilities.EncryptText;
+import co.uniqueid.api.utilities.JSONUtilities;
+import co.uniqueid.api.utilities.URLUtilities;
+
 public class SaveUniqueID {
 
-	private static String saveUnoUserUrl = "http://jsonpfy.unoidme.appspot.com/SaveDataService";
+	private static String saveUnoUserUrl = "https://jsonpfy.unoidme.appspot.com/SaveDataService";
 
 	public static String save(JSONObject unoUserJson) {
 
@@ -37,7 +41,8 @@ public class SaveUniqueID {
 		parameters += URLUtilities.addSaveParameter(unoUserJson,
 				"googleAccount");
 
-		URLUtilities.fetchURLPost(saveUnoUserUrl, parameters);
+		URLUtilities.fetchURLPost(saveUnoUserUrl,
+				parameters + EncryptText.getAuthParameter());
 
 		return unoUserJson.toString();
 	}
