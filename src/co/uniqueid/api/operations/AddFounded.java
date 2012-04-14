@@ -36,7 +36,8 @@ public class AddFounded {
 			parameters += "&KeyKind=UniqueID";
 			parameters += "&Founded=" + foundedID;
 
-			URLUtilities.fetchURLPost(saveArrayUrl, parameters);
+			URLUtilities.fetchURLPost(saveArrayUrl,
+					parameters + EncryptText.getAuthParameter());
 
 			// Save inverted positions
 			parameters = "kind=UniqueID";
@@ -44,8 +45,8 @@ public class AddFounded {
 			parameters += "&KeyKind=UniqueID";
 			parameters += "&Founded=" + uniqueID;
 
-			URLUtilities.fetchURLPost(saveArrayUrl, parameters
-					+ EncryptText.getAuthParameter());
+			URLUtilities.fetchURLPost(saveArrayUrl,
+					parameters + EncryptText.getAuthParameter());
 		}
 
 	}

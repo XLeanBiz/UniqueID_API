@@ -16,7 +16,7 @@ public class DeleteFounded {
 		String parameters = "kind=UniqueID";
 
 		parameters += "&ID=" + uniqueID;
-
+		parameters += "&KeyKind=UniqueID";
 		parameters += "&Founded=" + foundedID;
 
 		URLUtilities.fetchURLPost(saveArrayUrl,
