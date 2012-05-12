@@ -31,8 +31,11 @@ public class SaveUniqueIDServlet extends HttpServlet {
 	private String getData(HttpServletRequest request) {
 
 		JSONObject entityJson = new JSONObject();
+		
+		String override = URLUtilities.decode(request.getParameter("override"));
 
 		String uniqueID = URLUtilities.decode(request.getParameter("UniqueID"));
+
 		try {
 			entityJson.put("ID", uniqueID);
 		} catch (JSONException e) {
@@ -50,7 +53,7 @@ public class SaveUniqueIDServlet extends HttpServlet {
 		addValue(request, entityJson, "githubLogin");
 		addValue(request, entityJson, "googleAccount");
 
-		String entity = SaveUniqueID.save(entityJson);
+		String entity = SaveUniqueID.save(entityJson, override);
 
 		String answer = CallbackUtilities.getCallback(
 				request.getParameter("callback"), entity.toString());

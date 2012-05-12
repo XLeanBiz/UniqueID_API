@@ -13,11 +13,13 @@ public class SaveUniqueID {
 
 	private static String saveUnoUserUrl = "https://jsonpfy.unoidme.appspot.com/SaveDataService";
 
-	public static String save(JSONObject unoUserJson) {
+	public static String save(JSONObject unoUserJson, String override) {
 
 		String parameters = "kind=UniqueID";
 
-		parameters += ("&ID=" + getID(unoUserJson));
+		parameters += "&ID=" + getID(unoUserJson);
+
+		parameters += "&override=" + override;
 
 		parameters += URLUtilities.addSaveParameter(unoUserJson, "entityName");
 

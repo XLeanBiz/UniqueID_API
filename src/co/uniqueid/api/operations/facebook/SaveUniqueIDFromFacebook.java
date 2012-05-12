@@ -40,7 +40,7 @@ public class SaveUniqueIDFromFacebook {
 		unoUserJson = updateName(unoUserJson);
 		unoUserJson.remove("facebookLogin");
 
-		SaveUniqueID.save(unoUserJson);
+		SaveUniqueID.save(unoUserJson, "false");
 
 	}
 
