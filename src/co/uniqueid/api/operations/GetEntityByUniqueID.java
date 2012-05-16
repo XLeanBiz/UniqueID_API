@@ -1,9 +1,11 @@
 package co.uniqueid.api.operations;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import co.uniqueid.api.utilities.EncryptText;
+import co.uniqueid.api.utilities.JSONUtilities;
 import co.uniqueid.api.utilities.URLUtilities;
 
 public class GetEntityByUniqueID {
@@ -20,6 +22,46 @@ public class GetEntityByUniqueID {
 
 		final String jsonString = URLUtilities.fetchURLPost(getUnoUserUrl,
 				parameters + EncryptText.getAuthParameter());
+
+		return jsonString;
+	}
+
+	public static String getWithInfo(final String unoUserID) {
+
+		String jsonString = get(unoUserID);
+
+		jsonString = getInformation(jsonString);
+
+		return jsonString;
+	}
+
+	private static String getInformation(String jsonString) {
+
+		JSONObject json;
+		try {
+
+			json = new JSONObject(jsonString);
+
+			if (!json.isNull("Founded")) {
+
+				JSONArray foundeds = (JSONArray) json.get("Founded");
+
+				json.put("FoundedInfo", getGroupInfo(foundeds));
+			}
+
+			if (!json.isNull("Permissions")) {
+
+				JSONArray permissions = (JSONArray) json.get("Permissions");
+
+				json.put("PermissionsInfo", getGroupInfo(permissions));
+			}
+
+			jsonString = json.toString();
+
+		} catch (JSONException e) {
+
+			e.printStackTrace();
+		}
 
 		return jsonString;
 	}
@@ -49,5 +91,35 @@ public class GetEntityByUniqueID {
 		}
 
 		return basicInfo;
+	}
+
+	public static JSONArray getGroupInfo(final JSONArray groupList) {
+
+		JSONArray groupArray = new JSONArray();
+
+		if (groupList != null) {
+
+			for (int j = 0; j < groupList.length(); j++) {
+
+				String entityID;
+				try {
+
+					entityID = (String) groupList.get(j);
+
+					JSONObject entity = GetEntityByUniqueID
+							.getBasicInfo(JSONUtilities
+									.convertToEntityID(entityID));
+
+					groupArray.put(entity);
+
+				} catch (JSONException e) {
+
+					e.printStackTrace();
+				}
+
+			}
+		}
+
+		return groupArray;
 	}
 }

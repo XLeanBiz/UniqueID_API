@@ -29,7 +29,7 @@ public class GetEntityFromUniqueIDServlet extends HttpServlet {
 
 		String uniqueID = URLUtilities.decode(request.getParameter("UniqueID"));
 
-		String entity = GetEntityByUniqueID.get(uniqueID);
+		String entity = GetEntityByUniqueID.getWithInfo(uniqueID);
 
 		String answer = CallbackUtilities.getCallback(
 				request.getParameter("callback"), entity.toString());
