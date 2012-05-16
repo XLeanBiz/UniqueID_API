@@ -142,6 +142,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>DeletePermissionService</servlet-name>
+		<servlet-class>co.uniqueid.api.servlets.DeletePermissionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeletePermissionService</servlet-name>
+		<url-pattern>/DeletePermissionService</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>SaveUniqueIDFromFacebookService</servlet-name>
 		<servlet-class>co.uniqueid.api.servlets.SaveUniqueIDFromFacebookServlet</servlet-class>
 	</servlet>

@@ -16,25 +16,34 @@ public class AddPermission {
 
 	public static void save(final String uniqueID, final String permissionName) {
 
-		String founded = GetEntityByUniqueID.get(permissionName);
+		String permission = GetEntityByUniqueID.get(permissionName);
 
-		JSONObject foundedJson = JSONUtilities.getUserJson(founded);
+		JSONObject permissionJson = JSONUtilities.getUserJson(permission);
 
-		if (foundedJson == null || !foundedJson.has("ID")) {
+		if (permissionJson == null || !permissionJson.has("ID")) {
 
-			founded = GetUniqueID.getByField("entityName", permissionName);
+			permission = GetUniqueID.getByField("entityName", permissionName);
 
-			foundedJson = JSONUtilities.getUserJson(founded);
+			permissionJson = JSONUtilities.getUserJson(permission);
 		}
 
-		if (foundedJson != null) {
+		if (permissionJson != null) {
 
-			String foundedID = JSONUtilities.getString(foundedJson, "ID");
+			String permissionID = JSONUtilities.getString(permissionJson, "ID");
 
 			String parameters = "kind=UniqueID";
 			parameters += "&ID=" + uniqueID;
 			parameters += "&KeyKind=UniqueID";
-			parameters += "&Permissions=" + foundedID;
+			parameters += "&Permissions=" + permissionID;
+
+			URLUtilities.fetchURLPost(saveArrayUrl,
+					parameters + EncryptText.getAuthParameter());
+
+			// Save inverted positions
+			parameters = "kind=UniqueID";
+			parameters += "&ID=" + permissionID;
+			parameters += "&KeyKind=UniqueID";
+			parameters += "&Permissions=" + uniqueID;
 
 			URLUtilities.fetchURLPost(saveArrayUrl,
 					parameters + EncryptText.getAuthParameter());
