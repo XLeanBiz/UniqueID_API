@@ -35,18 +35,34 @@ public class GetEntityByUniqueID {
 		return jsonString;
 	}
 
-	private static String getInformation(String jsonString) {
+	public static String getInformation(String jsonString) {
 
 		JSONObject json;
 		try {
 
 			json = new JSONObject(jsonString);
 
+			json = getInformation(json);
+
+			return json.toString();
+
+		} catch (JSONException e) {
+
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	public static JSONObject getInformation(JSONObject json) {
+
+		try {
 			if (!json.isNull("Founded")) {
 
 				JSONArray foundeds = (JSONArray) json.get("Founded");
 
 				json.put("FoundedInfo", getGroupInfo(foundeds));
+
 			}
 
 			if (!json.isNull("Permissions")) {
@@ -56,14 +72,12 @@ public class GetEntityByUniqueID {
 				json.put("PermissionsInfo", getGroupInfo(permissions));
 			}
 
-			jsonString = json.toString();
-
 		} catch (JSONException e) {
 
 			e.printStackTrace();
 		}
 
-		return jsonString;
+		return json;
 	}
 
 	public static JSONObject getBasicInfo(final String unoUserID) {
